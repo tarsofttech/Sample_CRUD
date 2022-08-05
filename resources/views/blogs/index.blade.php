@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Blog Dashboard
-                        <a href="{{ route('blog:create')}}" class="btn btn-primary" style="floar:right;">New</a>
                 </div>
 
 
@@ -17,9 +16,9 @@
                             {{session()->get('alert')}}
                         </div>
                     @endif
-                    Display all the blogs here
-
+                    <a href="{{ route('blog:create')}}" class="btn btn-primary" style="float:right;">New Blog</a>
                     <table class="table">
+
                             <thead>
                                 <tr>
                                     <th>ID</th>

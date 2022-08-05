@@ -36,3 +36,7 @@ Route::group([
     Route::get('/delete/{blog}', 'BlogController@destroy')->name('delete');
 });
 
+//Route::view('/','template.home');
+// Route::get('/','PublicController@index');
+// Route::get('/{blog}','PublicController@show')->name('public:show');
+

@@ -15,7 +15,7 @@ class BlogController extends Controller
     public function index()
     {
 
-        $blogs = Blog::paginate(5);
+        $blogs = auth()->user()->blogs()->paginate(5);
         return view('blogs.index')->with(compact('blogs'));
     }
 

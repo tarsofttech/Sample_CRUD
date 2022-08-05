@@ -8,7 +8,7 @@
                 <div class="card-header">Edit {{$blog->title}}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('blog:update') }}" method="POST">
+                    <form action="{{ route('blog:update', $blog) }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
