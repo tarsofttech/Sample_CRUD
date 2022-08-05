@@ -14,7 +14,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+
+        $blogs = Blog::paginate(5);
+        return view('blogs.index')->with(compact('blogs'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('blogs.create');
     }
 
     /**
@@ -35,7 +37,10 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        auth()->user()->blogs()->create($request->only('title','body'));
+
+        return redirect()->route('blog:index');
     }
 
     /**
@@ -46,7 +51,7 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        return view('blogs.show')->with(compact('blog'));
     }
 
     /**
@@ -57,7 +62,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('blogs.edit', compact('blog'));
     }
 
     /**
@@ -69,7 +74,9 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $blog = $blog->update($request->only('title', 'body'));
+
+        return redirect()->route('blog:index');
     }
 
     /**
@@ -80,6 +87,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        return redirect()->route('blog:index');
     }
 }

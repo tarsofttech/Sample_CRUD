@@ -20,3 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group([
+    'middleware' =>'auth',
+    // 'prefix' => 'blog',
+    'as' => 'blog:'
+], function(){
+
+    Route::get('/blogs', 'BlogController@index')->name('index');
+    Route::get('/create', 'BlogController@create')->name('create');
+    Route::post('/create', 'BlogController@store')->name('store');
+    Route::get('/blogs/show/{blog}', 'BlogController@show')->name('show');
+    Route::get('/edit/{blog}', 'BlogController@edit')->name('edit');
+    Route::post('/edit/{blog}', 'BlogController@update')->name('update');
+    Route::get('/delete/{blog}', 'BlogController@destroy')->name('delete');
+});
+

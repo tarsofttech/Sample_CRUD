@@ -6,10 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Blog Dashboard
-                    <div class="float-right">
-                        <a href="{{ route('blog:create')}}" class="btn btn-primary">New</a>
-                        </div>
+                        <a href="{{ route('blog:create')}}" class="btn btn-primary" style="floar:right;">New</a>
                 </div>
+
 
 
                 <div class="card-body">
