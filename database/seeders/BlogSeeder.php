@@ -15,6 +15,10 @@ class BlogSeeder extends Seeder
      */
     public function run()
     {
-        factory(Blog::class, 5)->create()
+        Blog::create([
+            'title' => 'First Blog',
+            'body' => 'This is the first blog post',
+            'user_id' => 1,
+        ]);
     }
 }
